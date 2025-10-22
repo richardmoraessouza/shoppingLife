@@ -1,0 +1,28 @@
+.header {
+    background-color: var(--cor-principal);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.itemNav {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+      &:hover {
+        opacity: 0.5;
+    }
+}
+
+.separacao {
+    color: #fff;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}

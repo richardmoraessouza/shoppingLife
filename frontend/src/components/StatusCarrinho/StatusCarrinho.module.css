@@ -1,0 +1,16 @@
+.situacaoCarrinho {
+    background-color: rgba(0, 0, 0, 0.589);
+    width: 80%;
+    height: 40%;
+    left: 50%;
+    top: 50%;
+    max-width: 500px;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    font-size: 40px;
+    color: #fff;
+}
+
+.situacaoCarrinho i {
+    color: green;
+}

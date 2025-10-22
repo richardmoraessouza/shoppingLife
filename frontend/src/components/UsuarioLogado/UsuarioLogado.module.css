@@ -1,0 +1,37 @@
+.header {
+    background-color: var(--cor-principal);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.itemNav {
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    text-decoration: none;
+    margin: 0px;
+      &:hover {
+        opacity: 0.5;
+    }
+}
+
+.imgUsuario {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+

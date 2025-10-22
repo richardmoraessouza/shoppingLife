@@ -1,0 +1,13 @@
+:root {
+  --cor-principal: #353645;
+}
+
+body, html {
+  height: 100dvh;
+  background-color: #F4F4F4;
+
+}
+
+a {
+  text-decoration: underline;
+}
