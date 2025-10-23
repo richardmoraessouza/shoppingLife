@@ -104,7 +104,7 @@ function Authentication( {situacao}: Props ) {
                         required
                     />
                     <label className="form-check-label" htmlFor="exampleCheck1">
-                        {verificar ? "Lembrar login?" : "Você pode criar uma conta que não existe!"}
+                        {verificar ? "Lembrar login?" : "lembra de mim?"}
                     </label>
                 </div>
                 <button type="submit" className="btn btn-primary">
