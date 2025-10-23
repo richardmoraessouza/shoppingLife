@@ -17,8 +17,7 @@ function Authentication( {situacao}: Props ) {
     const [loginErro, setLoginErro] = useState<string>('');
     const navigate = useNavigate();
 
-    const usuario:string | null = localStorage.getItem('usuario_nome');
-
+    console.log(setVerificar)
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
