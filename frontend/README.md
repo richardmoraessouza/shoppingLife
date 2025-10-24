@@ -1,73 +1,105 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Shopping Life — Frontend
 
-Currently, two official plugins are available:
+Este repositório contém o frontend do projeto "Shopping Life": uma aplicação React com TypeScript e Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## O que é o projeto
 
-## React Compiler
+Shopping Life é o frontend (Single Page Application) de uma plataforma de compras on-line. A aplicação fornece a interface para navegar por produtos, criar/entrar em contas de usuário e gerenciar um carrinho de compras, tudo rodando no cliente com rotas SPA.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Principais responsabilidades / features
 
-## Expanding the ESLint configuration
+- Navegação e listagem de produtos com rotas no cliente (SPA).
+- Fluxo de autenticação e cadastro de usuários.
+- Gerenciamento do carrinho: adicionar, atualizar quantidades e remover itens.
+- Visualização do status do carrinho e integração com APIs através do Axios.
+- Preparado para build de produção e deploy contínuo (Netlify), com suporte a fallback para rotas SPA (`public/_redirects`).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+O README abaixo explica como configurar, rodar em desenvolvimento, gerar o build para produção e fazer deploy (Netlify).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologias
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React 19 + TypeScript
+- Vite
+- React Router
+- Axios
+- ESLint
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Pré-requisitos
+
+- Node.js (recomenda-se v18 ou superior)
+- npm (ou yarn/pnpm se preferir)
+
+## Instalação
+
+1. Clone o repositório (se não estiver clonado):
+
+2. Instale as dependências:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts úteis
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Os scripts disponíveis em `package.json`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `npm run dev` — inicia o servidor de desenvolvimento (Vite + HMR)
+- `npm run build` — compila TypeScript e gera o build de produção (Vite)
+- `npm run preview` — roda um servidor local para pré-visualizar o build
+- `npm run lint` — roda o ESLint no código
+
+Exemplo (desenvolvimento):
+
+```bash
+npm run dev
 ```
+
+## Estrutura principal do projeto
+
+Alguns arquivos/pastas relevantes:
+
+- `index.html` — ponto de entrada HTML
+- `src/main.tsx` — bootstrap da app
+- `src/App.tsx` — componente principal
+- `src/components/` — componentes organizados por funcionalidade (AuthenticationGateway, Cadastra, Carrinho, Layout, Login, Menu, StatusCarrinho, UsuarioLogado, ...)
+- `public/` — ativos públicos (ex.: `_redirects` usado pelo Netlify)
+
+## Configuração de build e deploy (Netlify)
+
+Este projeto já inclui um arquivo `netlify.toml` na raiz, então é possível conectar o repositório ao Netlify para deploy automático.
+
+Passos básicos para deploy no Netlify:
+
+1. No Netlify, crie um novo site a partir do repositório Git (GitHub/GitLab/Bitbucket).
+2. Configure os comandos de build:
+
+- Build command: `npm run build`
+- Publish directory: `frontend/dist` ou o diretório de saída configurado (ver `vite.config.ts` se tiver customização)
+
+3. (Opcional) Variáveis de ambiente: defina no painel do Netlify se a sua app requer chaves (API, etc.).
+
+Observação: o arquivo `public/_redirects` já existe para ajudar em rotas SPA no Netlify.
+
+## Lint
+
+Rode o ESLint com:
+
+```bash
+npm run lint
+```
+
+## Como contribuir
+
+- Abra uma issue descrevendo a sugestão ou bug.
+- Crie um branch com um nome descritivo.
+- Faça commits claros e crie um Pull Request apontando para `main`.
+
+## Contato
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/richard-moraes-souza-998539338/)
+- 🌐 [Portfólio](https://richardmoraessouza.github.io/Portf-lio/)
+- 📱 [WhatsApp](https://wa.me/5547999326217?text=Olá%20Richard%2C%20encontrei%20seu%20perfil%20no%20GitHub!)
+- 📧 richardmoraessouza2006@gmail.com
+---
+
