@@ -10,7 +10,7 @@ function UsuarioLogado({usuario}: props) {
         <nav>
             <ul>
                 <li className={styles.itemNav}>
-                    <div className={styles.imgUsuario}><img src="/usuario.png" alt="" /></div>
+                    <div className={styles.imgUsuario}><img src="/usuario.png" alt="foto de perfil" /></div>
                     {usuario}
                 </li>
             </ul>

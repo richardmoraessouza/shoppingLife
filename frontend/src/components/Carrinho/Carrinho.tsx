@@ -48,17 +48,28 @@ function Carrinho() {
             <h3>🛒 Seu carrinho está vazio!</h3>
           ) : 
           carrinho.map(item => (
-            <article key={item.id} className={styles.produto}>
-              <div className={styles.produtoImagem}>
-                <img src={item.image} alt={item.title} width={100} />
-                <p><strong>Frete Grátis</strong> acima de <strong>10 US$</strong></p>
-              </div>
-              <div className={styles.sobreProduto}>
-                <p>{item.title}</p>
-                <p>Quantidade: {item.quantidade}</p>
-                <p><strong>US$ {item.price}</strong> no Pix</p>
-              </div>
-            </article>
+            <article
+            className={`col-12 col-sm-6 col-md-4 col-lg-3 ${styles.cardProduto}`}
+            key={item.id}
+          >
+            {/* Desconto no canto */}
+            <div className={styles.desconto}>
+    
+            </div>
+
+            {/* Imagem */}
+            <div className={styles.imgContainer}>
+              <img src={item.image} alt={item.title} />
+            </div>
+            <p className={styles.frete}><strong>Frete grátis</strong> acima de <strong>R$10</strong></p>
+
+            {/* Informações */}
+            <div className={styles.info}>
+              <p className={styles.titulo}>{item.title}</p>
+              <p className={styles.preco}>R${item.price}</p>
+            </div>
+
+          </article>
           ))
         }
         </main>

@@ -7,6 +7,7 @@ import Login from './components/Login/Login.tsx'
 import Cadastra from './components/Cadastra/Cadastra.tsx'
 import Layout from './components/Layout/Layout.tsx'
 import Carrinho from './components/Carrinho/Carrinho.tsx'
+import PaginaProdutos from './components/PaginaProduto/PaginaProduto.tsx'
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,11 @@ const router = createBrowserRouter([
       {
         path: '/carrinho',
         element: <Carrinho/>
+      },
+      {
+        path: "/produto/:id",
+        element: <PaginaProdutos/>
       }
-
     ]
   },
 ])
