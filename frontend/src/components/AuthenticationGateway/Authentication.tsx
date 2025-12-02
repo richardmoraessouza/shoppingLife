@@ -17,14 +17,13 @@ function Authentication( {situacao}: Props ) {
     const [loginErro, setLoginErro] = useState<string>('');
     const navigate = useNavigate();
 
-    console.log(setVerificar)
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
          try {
             if (verificar) {
                 // LOGIN
-                const res = await axios.get('https://api-shopping-life.onrender.com/usuarios');
+                const res = await axios.get('http://localhost:3000/usuarios');
                 const usuario = res.data.find((u: any) => u.gmail === gmail && u.senha === senha);
                 if (usuario) {
                     localStorage.setItem('usuario_id', usuario.id);
@@ -35,7 +34,7 @@ function Authentication( {situacao}: Props ) {
                 }
             } else {
                 // CADASTRO
-                const res = await axios.post('https://api-shopping-life.onrender.com/usuarios', { gmail, senha, nome });
+                const res = await axios.post('http://localhost:3000/usuarios', { gmail, senha, nome });
                 localStorage.setItem('usuario_id', res.data.id);
                 localStorage.setItem('usuario_nome', nome);
                 alert("Conta criada com sucesso!");

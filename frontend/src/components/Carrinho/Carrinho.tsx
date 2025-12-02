@@ -9,7 +9,7 @@ function Carrinho() {
   useEffect(() => {
     const usuarioId = localStorage.getItem('usuario_id');
     if (usuarioId) {
-      axios.get(`https://api-shopping-life.onrender.com/carrinho/${usuarioId}`).then((res) => {
+      axios.get(`http://localhost:3000/carrinho/${usuarioId}`).then((res) => {
         setCarrinho(res.data);
         setCarrinhoVazio(false);
       }).catch(() => {

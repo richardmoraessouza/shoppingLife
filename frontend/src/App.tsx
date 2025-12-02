@@ -35,7 +35,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true) 
-    axios.get('https://api-shopping-life.onrender.com/produtos')
+    axios.get('http://localhost:3000/produtos')
       .then((res) => {
         setProdutos(res.data)
         const descontosGerados = res.data.map(() => Math.floor(Math.random() * 95))
@@ -56,7 +56,7 @@ function App() {
       window.location.href = '/login'
       return
     }
-    axios.post('https://api-shopping-life.onrender.com/carrinho', {
+    axios.post('http://localhost:3000/carrinho', {
       usuario_id: usuarioId,
       produto_id: produtoId,
       quantidade: 1,

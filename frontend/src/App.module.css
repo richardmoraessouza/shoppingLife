@@ -28,7 +28,6 @@ main {
     background-color: var(--cor-principal);
 }
 
-
 /* card produtos */
 .gridProdutos {
     display: flex;
@@ -77,7 +76,7 @@ main {
   .imgContainer img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   
   .imgContainer {
@@ -123,7 +122,6 @@ main {
   }
 
 /* css do carrinho */
-
 .carrinho {
     background-color: var(--cor-principal);
     transition: color 3s ease;
