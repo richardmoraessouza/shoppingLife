@@ -12,7 +12,7 @@ type Props = {
 function Authentication( {situacao}: Props ) {
     const [gmail, setGmail] = useState<string>('')
     const [nome, setNome] = useState<string>('')
-    const [verificar, setVerificar] = useState<boolean>(situacao)
+    const verificar = situacao
     const [senha, setSenha] = useState<string>('');
     const [loginErro, setLoginErro] = useState<string>('');
     const navigate = useNavigate();

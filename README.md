@@ -1,6 +1,8 @@
 
 # Shopping Life — Frontend
 
+🌐 **Site em produção:** [https://projectshoppinglife.netlify.app/](https://projectshoppinglife.netlify.app/)
+
 Este repositório contém o frontend do projeto "Shopping Life": uma aplicação React com TypeScript e Vite.
 
 ## O que é o projeto
