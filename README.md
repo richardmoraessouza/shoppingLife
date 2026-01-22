@@ -1,5 +1,5 @@
 
-# Shopping Life — Frontend
+# Shopping Life
 
 🌐 **Site em produção:** [https://projectshoppinglife.netlify.app/](https://projectshoppinglife.netlify.app/)
 
