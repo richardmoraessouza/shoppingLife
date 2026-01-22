@@ -1,23 +1,31 @@
 .header {
-    background-color: var(--cor-principal);
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 16px 20px;
     z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .itemNav {
     color: #fff;
     text-decoration: none;
-    margin: 0 10px;
-      &:hover {
-        opacity: 0.5;
-    }
+    margin: 0 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.itemNav:active {
+    transform: translateY(0);
 }
 
 .separacao {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 8px;
+    font-weight: 300;
 }
 
 .header ul {
@@ -25,4 +33,5 @@
     display: flex;
     flex-direction: row;
     margin: 0;
+    align-items: center;
 }

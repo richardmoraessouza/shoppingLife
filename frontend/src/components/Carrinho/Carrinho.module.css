@@ -5,26 +5,46 @@
     left: 0;
     display: flex;
     flex-direction: row;
-    font-size: 30px;
-    background-color: var(--cor-principal);
+    align-items: center;
+    font-size: 24px;
+    background: var(--gradiente-principal);
     width: 100%;
     color: #fff;
+    padding: 16px 24px;
+    box-shadow: var(--sombra-media);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 16px;
 }
 
 .menuCarrinho svg {
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.281);
+    background-color: rgba(0, 0, 0, 0.2);
     height: 40px;
     width: 40px;
     border-radius: 50%;
     text-align: center;
+    padding: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.menuCarrinho svg:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.menuCarrinho h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .meuCarrinho {
     flex-direction: column;
-    gap: 15px;
-    background-color: #F4F4F4;
-    padding: 20px;
+    gap: 20px;
+    background: var(--cor-fundo);
+    padding: 40px 20px;
+    min-height: calc(100vh - 80px);
 }
 
 

@@ -1,16 +1,35 @@
 .situacaoCarrinho {
-    background-color: rgba(0, 0, 0, 0.589);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
     width: 80%;
     height: 40%;
     left: 50%;
     top: 50%;
-    max-width: 500px;
+    max-width: 400px;
     transform: translate(-50%, -50%);
     flex-direction: column;
-    font-size: 40px;
+    font-size: 18px;
     color: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: var(--sombra-forte);
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 16px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .situacaoCarrinho i {
-    color: green;
+    color: var(--cor-sucesso);
+    font-size: 48px;
+    margin-bottom: 8px;
 }

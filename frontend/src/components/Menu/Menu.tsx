@@ -10,6 +10,8 @@ function Menu () {
                 <li>
                     <Link to="/" className={styles.itemNav}>Home</Link>
                 </li>
+                
+                <div className={styles.separacao}>|</div>
 
                 <li>
                     <Link to="/login" className={styles.itemNav}>Entrar</Link>

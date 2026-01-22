@@ -56,7 +56,7 @@ function App() {
       window.location.href = '/login'
       return
     }
-    axios.post('https://api-shopping-life.onrender.com//carrinho', {
+    axios.post('https://api-shopping-life.onrender.com/carrinho', {
       usuario_id: usuarioId,
       produto_id: produtoId,
       quantidade: 1,
@@ -75,6 +75,7 @@ function App() {
     <main>
       {usuario && <UsuarioLogado usuario={usuario} />}
 
+      {/* Botão do carrinho fixo */}
       <aside className={`position-fixed ${styles.containerMeuCar}`}>
         <a href="/carrinho" className={styles.btnCarrinho}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
@@ -82,10 +83,11 @@ function App() {
           </svg>
         </a>
       </aside>
-
+      
+      {/* Campo de pesquisar */}
       <section className={styles.pesquisar}>
         <div className={styles.containerPesquisas}>
-          <button className="border-0">
+          <button className={styles.btnLogo}>
             <a href="/"><img src="/teste.png" alt="Logo" /></a>
           </button>
           <form onSubmit={campoPesquisar} className="position-relative">
@@ -108,9 +110,26 @@ function App() {
       <section className="container">
       {/* Mostra carregando produtos enquanto a api não carrega */}
           {loading ? (
-            <div className="text-center my-5">
-              <div className="spinner-border" role="status"></div>
-              <p className="mt-3">Carregando produtos...</p>
+            <div className="text-center my-5" style={{ padding: '60px 20px' }}>
+              <div 
+                className="spinner-border" 
+                role="status"
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  borderWidth: '4px',
+                  borderColor: 'var(--cor-principal)',
+                  borderRightColor: 'transparent',
+                  animation: 'spin 0.8s linear infinite'
+                }}
+              ></div>
+              <p className="mt-4" style={{ 
+                color: 'var(--cor-texto-secundario)', 
+                fontSize: '16px',
+                fontWeight: 500
+              }}>
+                Carregando produtos...
+              </p>
             </div>
 
             ) : (
@@ -129,11 +148,12 @@ function App() {
                       <span>-{descontos[index] ?? 0}%</span>
                     </div>
 
-                    {/* Imagem */}
+                    {/* Imagem do produto */}
                     <div className={styles.imgContainer}>
                       <img src={item.image} alt={item.title} />
+                      <p className={styles.frete}><strong>Frete grátis</strong> acima de <strong>R$10</strong></p>
                     </div>
-                    <p className={styles.frete}><strong>Frete grátis</strong> acima de <strong>R$10</strong></p>
+                    
 
                     {/* Informações */}
                     <div className={styles.info}>
