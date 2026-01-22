@@ -12,11 +12,10 @@
     width: 100%;
     position: fixed;
     z-index: 999;
-    height: 180px;
-    top: 0;
+    height: 200px;
+    top: 10px;
     left: 0;
     box-shadow: var(--sombra-media);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btnPesquisar {
@@ -223,7 +222,7 @@ main {
     -webkit-box-orient: vertical;
     line-height: 1.4;
     font-weight: 500;
-    width: 144px;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

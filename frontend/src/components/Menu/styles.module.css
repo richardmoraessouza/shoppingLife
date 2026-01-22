@@ -5,6 +5,7 @@
     padding: 16px 20px;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    background: var(--gradiente-principal);
 }
 
 .itemNav {

@@ -34,7 +34,7 @@ function Authentication( {situacao}: Props ) {
                 }
             } else {
                 // CADASTRO
-                const res = await axios.post('http://localhost:3000/usuarios', { gmail, senha, nome });
+                const res = await axios.post('https://api-shopping-life.onrender.com/usuarios', { gmail, senha, nome });
                 localStorage.setItem('usuario_id', res.data.id);
                 localStorage.setItem('usuario_nome', nome);
                 alert("Conta criada com sucesso!");

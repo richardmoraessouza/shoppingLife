@@ -118,10 +118,10 @@
   
   .frete {
     color: #fff;
-    font-size: 10px;
-    background-color: #113366;
+    font-size: 11px;
+     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     position: absolute;
-    padding: 5px;
-    border-radius: 2px;
+    border-radius: 8px;
+     padding: 6px 10px;
     top: 175px;
   }

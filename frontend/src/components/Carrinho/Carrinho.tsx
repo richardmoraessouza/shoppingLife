@@ -61,6 +61,7 @@ function Carrinho() {
             <div className={styles.imgContainer}>
               <img src={item.image} alt={item.title} />
             </div>
+            
             <p className={styles.frete}><strong>Frete grátis</strong> acima de <strong>R$10</strong></p>
 
             {/* Informações */}
