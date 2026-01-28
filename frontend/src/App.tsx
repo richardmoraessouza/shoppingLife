@@ -87,9 +87,9 @@ function App() {
       {/* Campo de pesquisar */}
       <section className={styles.pesquisar}>
         <div className={styles.containerPesquisas}>
-          <button className={styles.btnLogo}>
+        
             <a href="/"><img src="/teste.png" alt="Logo" /></a>
-          </button>
+        
           <form onSubmit={campoPesquisar} className="position-relative">
             <input
               type="text"
@@ -106,6 +106,7 @@ function App() {
       </section>
 
       <div className="p-5"></div>
+      <div className="p-3"></div>
 
       <section className="container">
       {/* Mostra carregando produtos enquanto a api não carrega */}
