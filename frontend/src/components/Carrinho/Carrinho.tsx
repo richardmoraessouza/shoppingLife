@@ -1,10 +1,12 @@
 import styles from "./Carrinho.module.css"
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Carrinho() {
   const [carrinho, setCarrinho] = useState<any[]>([]);
   const [carrinhoVazio, setCarrinhoVazio] = useState<boolean>(true)
+  const navigate = useNavigate();
 
   useEffect(() => {
     const usuarioId = localStorage.getItem('usuario_id');
@@ -22,7 +24,7 @@ function Carrinho() {
   }, []);
 
   function linkProduto(produtoId :number) {
-    window.location.href = `/produto/${produtoId}`;
+    navigate(`/produto/${produtoId}`);
   }
     return (
         <>

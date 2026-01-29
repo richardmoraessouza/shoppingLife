@@ -4,7 +4,6 @@ import axios from 'axios'
 import StatusCarrinho from '../StatusCarrinho/StatusCarrinho'
 import styles from './PaginaProduto.module.css'
 
-/** API api-shopping-life retorna campos em minúsculas */
 interface Review {
   rating: number
   comment: string

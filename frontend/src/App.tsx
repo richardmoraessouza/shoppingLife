@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './App.module.css'
 import axios from 'axios'
 import UsuarioLogado from './components/UsuarioLogado/UsuarioLogado'
@@ -16,6 +17,7 @@ interface Produto {
 
 function App() {
   const [produtos, setProdutos] = useState<Produto[]>([])
+  const navigate = useNavigate()
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [usuario, setUsuario] = useState<string | null>(null)
@@ -27,7 +29,7 @@ function App() {
   }
 
   function linkProduto(produtoId: number) {
-    window.location.href = `/produto/${produtoId}`; // redireciona para a página do produto
+    navigate(`/produto/${produtoId}`) // redireciona para a página do produto
   }
 
   useEffect(() => {
