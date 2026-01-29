@@ -7,13 +7,15 @@ import StatusCarrinho from './components/StatusCarrinho/StatusCarrinho'
 interface Produto {
   id: number
   title: string
-  image: string
+  image?: string | null
+  images?: string[] | string | null
+  thumbnail?: string | null
   price: number
+  discountpercentage?: number | null
 }
 
 function App() {
   const [produtos, setProdutos] = useState<Produto[]>([])
-  const [descontos, setDescontos] = useState<number[]>([])
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [usuario, setUsuario] = useState<string | null>(null)
@@ -38,8 +40,6 @@ function App() {
     axios.get('https://api-shopping-life.onrender.com/produtos')
       .then((res) => {
         setProdutos(res.data)
-        const descontosGerados = res.data.map(() => Math.floor(Math.random() * 95))
-        setDescontos(descontosGerados)
       })
       .catch((err) => console.error(err))
       .finally(() => setLoading(false))
@@ -144,14 +144,24 @@ function App() {
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(null)}
                   >
-                    {/* Desconto no canto */}
-                    <div className={styles.desconto}>
-                      <span>-{descontos[index] ?? 0}%</span>
-                    </div>
+                    {/* Desconto no canto (usa discountpercentage da API) */}
+                    {(item.discountpercentage != null && item.discountpercentage > 0) && (
+                      <div className={styles.desconto}>
+                        <span>-{Math.round(item.discountpercentage)}%</span>
+                      </div>
+                    )}
 
                     {/* Imagem do produto */}
                     <div className={styles.imgContainer}>
-                      <img src={item.image} alt={item.title} />
+                      <img
+                        src={
+                          item.image ??
+                          (Array.isArray(item.images) ? item.images[0] : (typeof item.images === 'string' ? item.images : null)) ??
+                          item.thumbnail ??
+                          ''
+                        }
+                        alt={item.title}
+                      />
                       <p className={styles.frete}><strong>Frete grátis</strong> acima de <strong>R$10</strong></p>
                     </div>
                     
@@ -159,7 +169,7 @@ function App() {
                     {/* Informações */}
                     <div className={styles.info}>
                       <p className={styles.titulo}>{item.title}</p>
-                      <p className={styles.preco}>R${item.price}</p>
+                      <p className={styles.preco}>R$ {Number(item.price).toFixed(2)}</p>
                     </div>
 
                     {/* Botão carrinho aparece ao passar o mouse */}

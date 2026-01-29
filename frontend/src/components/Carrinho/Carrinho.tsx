@@ -11,6 +11,7 @@ function Carrinho() {
     if (usuarioId) {
       axios.get(`https://api-shopping-life.onrender.com/carrinho/${usuarioId}`).then((res) => {
         setCarrinho(res.data);
+        console.log(res.data)
         setCarrinhoVazio(false);
       }).catch(() => {
         setCarrinhoVazio(false);
@@ -20,9 +21,12 @@ function Carrinho() {
     }
   }, []);
 
+  function linkProduto(produtoId :number) {
+    window.location.href = `/produto/${produtoId}`;
+  }
     return (
         <>
-        {/* Voltar para o menor */}
+        {/* Voltar para o menu */}
         <section className={`position-fixed p-2 gap-4 ${styles.menuCarrinho}`}>
             <a href="/">
             <svg
@@ -51,15 +55,26 @@ function Carrinho() {
             <article
             className={`col-12 col-sm-6 col-md-4 col-lg-3 ${styles.cardProduto}`}
             key={item.id}
+            onClick={() => linkProduto(item.produtos_id)}
           >
             {/* Desconto no canto */}
-            <div className={styles.desconto}>
-    
-            </div>
+            {(item.discountpercentage != null && item.discountpercentage > 0) && (
+              <div className={styles.desconto}>
+                <span>-{Math.round(item.discountpercentage)}%</span>
+              </div>
+            )}
 
             {/* Imagem */}
             <div className={styles.imgContainer}>
-              <img src={item.image} alt={item.title} />
+            <img
+                src={
+                  item.image ??
+                  (Array.isArray(item.images) ? item.images[0] : (typeof item.images === 'string' ? item.images : null)) ??
+                  item.thumbnail ??
+                  ''
+                }
+                alt={item.title}
+              />
             </div>
             
             <p className={styles.frete}><strong>Frete grátis</strong> acima de <strong>R$10</strong></p>
